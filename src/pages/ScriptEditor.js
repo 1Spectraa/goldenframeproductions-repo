@@ -5,12 +5,12 @@ import { exportScript } from '../lib/export'
 import ProjectPicker from '../components/ProjectPicker'
 
 const FORMATS = {
-  scene:      { label: 'Scene Heading', style: { textTransform: 'uppercase', fontWeight: 'bold', color: '#E8C97A', borderBottom: '0.5px solid rgba(255,255,255,0.1)', paddingBottom: '2px' } },
-  action:     { label: 'Action',        style: { color: '#F0EBE0' } },
-  character:  { label: 'Character',     style: { textAlign: 'center', textTransform: 'uppercase', fontWeight: 'bold', color: '#F0EBE0', paddingLeft: '35%' } },
-  dialogue:   { label: 'Dialogue',      style: { paddingLeft: '20%', paddingRight: '20%', color: '#F0EBE0' } },
-  parenthetical: { label: 'Parenthetical', style: { paddingLeft: '28%', color: 'rgba(240,235,224,0.5)', fontStyle: 'italic' } },
-  transition: { label: 'Transition',    style: { textAlign: 'right', textTransform: 'uppercase', fontWeight: 'bold', color: 'rgba(240,235,224,0.5)' } },
+  scene:         { label: 'Scene Heading', style: { textTransform: 'uppercase', fontWeight: 'bold', color: '#000', borderBottom: '1px solid #ccc', paddingBottom: '2px' } },
+  action:        { label: 'Action',        style: { color: '#111' } },
+  character:     { label: 'Character',     style: { textTransform: 'uppercase', fontWeight: 'bold', color: '#111', paddingLeft: '35%' } },
+  dialogue:      { label: 'Dialogue',      style: { paddingLeft: '20%', paddingRight: '20%', color: '#111' } },
+  parenthetical: { label: 'Parenthetical', style: { paddingLeft: '28%', color: '#444', fontStyle: 'italic' } },
+  transition:    { label: 'Transition',    style: { textAlign: 'right', textTransform: 'uppercase', fontWeight: 'bold', color: '#444' } },
 }
 
 export default function ScriptEditor({ project, onSelectProject }) {
