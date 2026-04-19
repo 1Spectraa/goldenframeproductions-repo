@@ -29,7 +29,6 @@ export default function Projects({ onOpenProject }) {
     const { data } = await supabase
       .from('projects')
       .select('*, profiles(full_name)')
-      .or(`owner_id.eq.${profile.id}${isAdmin() ? ',owner_id.neq.00000000-0000-0000-0000-000000000000' : ''}`)
       .order('updated_at', { ascending: false })
     setProjects(data || [])
     setLoading(false)

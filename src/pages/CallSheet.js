@@ -1,8 +1,9 @@
+import ProjectPicker from '../components/ProjectPicker'
 import { useEffect, useState } from 'react'
 import { supabase } from '../lib/supabase'
 import { exportCallSheet } from '../lib/export'
 
-export default function CallSheet({ project }) {
+export default function CallSheet({ project, onSelectProject }) {
   const [sheets, setSheets] = useState([])
   const [active, setActive] = useState(null)
   const [saving, setSaving] = useState(false)
@@ -87,7 +88,7 @@ export default function CallSheet({ project }) {
   }
   function addEquipment() { update('equipment', [...(active.equipment || []), { label: 'New item', checked: false }]) }
 
-  if (!project) return <div style={{ padding: '3rem', textAlign: 'center', color: 'rgba(240,235,224,0.3)' }}>Select a project first.</div>
+  if (!project) return <ProjectPicker toolName="Call Sheet" onSelect={onSelectProject} />
 
   return (
     <div style={{ display: 'grid', gridTemplateColumns: '190px 1fr', minHeight: '100vh' }}>

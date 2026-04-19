@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react'
 import { supabase } from '../lib/supabase'
 import { useAuth } from '../context/AuthContext'
 import { exportScript } from '../lib/export'
+import ProjectPicker from '../components/ProjectPicker'
 
 const FORMATS = {
   scene:      { label: 'Scene Heading', style: { textTransform: 'uppercase', fontWeight: 'bold', color: '#E8C97A', borderBottom: '0.5px solid rgba(255,255,255,0.1)', paddingBottom: '2px' } },
@@ -12,7 +13,7 @@ const FORMATS = {
   transition: { label: 'Transition',    style: { textAlign: 'right', textTransform: 'uppercase', fontWeight: 'bold', color: 'rgba(240,235,224,0.5)' } },
 }
 
-export default function ScriptEditor({ project }) {
+export default function ScriptEditor({ project, onSelectProject }) {
   const { profile } = useAuth()
   const [scripts, setScripts] = useState([])
   const [activeScript, setActiveScript] = useState(null)
@@ -92,11 +93,7 @@ export default function ScriptEditor({ project }) {
   const wordCount = content.trim() ? content.trim().split(/\s+/).length : 0
   const pageCount = Math.max(1, Math.ceil(content.split('\n').length / 55))
 
-  if (!project) return (
-    <div style={{ padding: '3rem', textAlign: 'center', color: 'rgba(240,235,224,0.3)' }}>
-      Select a project to open the script editor.
-    </div>
-  )
+  if (!project) return <ProjectPicker toolName="Script Editor" onSelect={onSelectProject} />
 
   return (
     <div style={{ display: 'grid', gridTemplateColumns: '200px 1fr', height: '100%', minHeight: '100vh' }}>

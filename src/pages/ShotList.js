@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react'
 import { supabase } from '../lib/supabase'
 import { exportShotList } from '../lib/export'
+import ProjectPicker from '../components/ProjectPicker'
 
 const SHOT_TYPES = ['WS', 'LS', 'MS', 'MCU', 'CU', 'ECU', 'OTS', 'POV', 'Insert', 'Aerial', 'Two-Shot']
 const MOVEMENTS = ['Static', 'Pan L', 'Pan R', 'Tilt Up', 'Tilt Down', 'Dolly In', 'Dolly Out', 'Tracking', 'Handheld', 'Crane', 'Gimbal']
 
-export default function ShotList({ project }) {
+export default function ShotList({ project, onSelectProject }) {
   const [shots, setShots] = useState([])
   const [loading, setLoading] = useState(true)
   const [editingId, setEditingId] = useState(null)
@@ -69,7 +70,7 @@ export default function ShotList({ project }) {
     return acc + (match ? parseInt(match[1]) : 0)
   }, 0)
 
-  if (!project) return <div style={{ padding: '3rem', textAlign: 'center', color: 'rgba(240,235,224,0.3)' }}>Select a project first.</div>
+  if (!project) return <ProjectPicker toolName="Shot List" onSelect={onSelectProject} />
   if (loading) return <div style={{ padding: '2rem', color: '#C9A84C' }}>Loading shot list...</div>
 
   return (

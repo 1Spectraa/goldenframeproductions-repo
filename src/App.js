@@ -145,9 +145,9 @@ function AppShell() {
         <Routes>
           <Route path="/dashboard" element={<Dashboard navigate={navigate} />} />
           <Route path="/projects" element={<ProtectedRoute permission="projects.view"><Projects onOpenProject={openProject} /></ProtectedRoute>} />
-          <Route path="/scripts" element={<ProtectedRoute permission="scripts.view"><ScriptEditor project={activeProject} /></ProtectedRoute>} />
-          <Route path="/shotlist" element={<ProtectedRoute permission="tools.shot_list"><ShotList project={activeProject} /></ProtectedRoute>} />
-          <Route path="/callsheet" element={<ProtectedRoute permission="tools.call_sheet"><CallSheet project={activeProject} /></ProtectedRoute>} />
+          <Route path="/scripts" element={<ProtectedRoute permission="scripts.view"><ScriptEditor project={activeProject} onSelectProject={p => { setActiveProject(p) }} /></ProtectedRoute>} />
+          <Route path="/shotlist" element={<ProtectedRoute permission="tools.shot_list"><ShotList project={activeProject} onSelectProject={p => { setActiveProject(p) }} /></ProtectedRoute>} />
+          <Route path="/callsheet" element={<ProtectedRoute permission="tools.call_sheet"><CallSheet project={activeProject} onSelectProject={p => { setActiveProject(p) }} /></ProtectedRoute>} />
           <Route path="/events" element={<ProtectedRoute permission="events.view"><Events /></ProtectedRoute>} />
           <Route path="/resources" element={<ProtectedRoute permission="resources.view"><Resources onNavigate={navigate} /></ProtectedRoute>} />
           <Route path="/members" element={<ProtectedRoute permission="members.view_directory"><Members /></ProtectedRoute>} />
