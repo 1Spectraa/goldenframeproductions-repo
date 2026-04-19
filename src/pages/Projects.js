@@ -28,7 +28,7 @@ export default function Projects({ onOpenProject }) {
     setLoading(true)
     const { data } = await supabase
       .from('projects')
-      .select('*, profiles(full_name)')
+      .select('*')
       .order('updated_at', { ascending: false })
     setProjects(data || [])
     setLoading(false)
