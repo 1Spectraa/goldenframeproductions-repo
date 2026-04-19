@@ -100,7 +100,7 @@ export default function LandingPage() {
           <h2 style={{ fontFamily: 'serif', fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', color: '#fff', marginBottom: '3rem' }}>Three Pillars of Our Work</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', border: '0.5px solid rgba(201,168,76,0.12)' }}>
             {[
-              { num: '01', title: 'Film Education', body: 'Workshops, screenings, and hands-on sessions covering scriptwriting, camera work, editing, and storytelling fundamentals — accessible to all skill levels.' },
+              { num: '01', title: 'Passionate Community', body: 'A welcoming group comprising of fellow creatives and individuals passionate about filmmaking.' },
               { num: '02', title: 'Production Support', body: 'Collaborative resources for members working on short films and documentaries. Access to shared equipment, mentorship, and peer feedback.' },
               { num: '03', title: 'Community Screenings', body: 'Public film nights celebrating Caribbean and international cinema — building a culture of film appreciation across St. Kitts &amp; Nevis.' },
             ].map((p, i) => (
