@@ -229,7 +229,7 @@ export function exportCallSheet(callSheet, projectTitle) {
       const row = Math.floor(i / cols)
       const xPos = 14 + col * 90
       const yPos = y + row * 7
-      doc.setFillColor(item.checked ? ...GOLD : 220, 220, 215)
+      if (item.checked) { doc.setFillColor(GOLD[0], GOLD[1], GOLD[2]) } else { doc.setFillColor(220, 220, 215) }
       doc.rect(xPos, yPos - 3, 4, 4, 'F')
       doc.setFont('helvetica', 'normal'); doc.setFontSize(9); doc.setTextColor(...BLACK)
       doc.text(item.label, xPos + 6, yPos)
